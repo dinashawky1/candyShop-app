@@ -66,6 +66,28 @@ class ProductsListScreen extends StatelessWidget {
             child: Form(
               key: formKey,
               child: Column(children: [
+                Container(
+                  margin: EdgeInsets.only(left: 10.0, right: 10.0),
+                  padding: EdgeInsets.only(top: 8.0),
+                  child: TextFormField(
+                    key: ValueKey('Search Product'),
+                    controller: SearchController,
+                    keyboardType: TextInputType.text,
+                    decoration: InputDecoration(
+                      labelText: 'Search Product ',
+                      fillColor: Colors.white,
+                      filled: true,
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(35.0),
+                      ),
+                    ),
+                    validator: (String? value) {
+                      if (value!.isEmpty) {
+                        return 'search product name,description,price';
+                      }
+                    },
+                  ),
+                ),
                 SizedBox(
                   height: 10,
                 ),

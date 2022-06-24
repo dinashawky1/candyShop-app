@@ -54,16 +54,19 @@ class AddProductsScreen extends StatelessWidget {
                       margin: EdgeInsets.only(left: 10.0, right: 10.0),
                       padding: EdgeInsets.only(top: 8.0),
                       child: TextFormField(
+                          key: ValueKey('Product Name'),
                           controller: ProductNameController,
                           keyboardType: TextInputType.text,
                           decoration: InputDecoration(
                             labelText: 'Product Name ',
+                            fillColor: Colors.white,
+                            filled: true,
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(35.0),
                             ),
                           ),
                           validator: (String? value) {
-                            if (value!.length < 3) {
+                            if (value!.isEmpty || value.length < 3) {
                               return 'input should be 3 characters or more';
                             }
                             return null;
@@ -76,16 +79,19 @@ class AddProductsScreen extends StatelessWidget {
                       margin: EdgeInsets.only(left: 10.0, right: 10.0),
                       padding: EdgeInsets.only(top: 8.0),
                       child: TextFormField(
+                          key: ValueKey('Product Description '),
                           controller: ProductDescriptionController,
                           keyboardType: TextInputType.text,
                           decoration: InputDecoration(
                             labelText: 'Product Description ',
+                            fillColor: Colors.white,
+                            filled: true,
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(35.0),
                             ),
                           ),
                           validator: (String? value) {
-                            if (value!.length < 3) {
+                            if (value!.isEmpty || value.length < 3) {
                               return 'input should be 3 characters or more';
                             }
                             return null;
@@ -98,6 +104,7 @@ class AddProductsScreen extends StatelessWidget {
                       margin: EdgeInsets.only(left: 10.0, right: 10.0),
                       padding: EdgeInsets.only(top: 8.0),
                       child: TextFormField(
+                          key: ValueKey('Product Price'),
                           controller: ProductPriceController,
                           keyboardType: TextInputType.numberWithOptions(
                             decimal: true,
@@ -106,6 +113,8 @@ class AddProductsScreen extends StatelessWidget {
                           decoration: InputDecoration(
                             labelText: 'Product Price ',
                             suffix: Text('K.D'),
+                            fillColor: Colors.white,
+                            filled: true,
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(35.0),
                             ),

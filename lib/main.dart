@@ -11,9 +11,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  Widget? widget;
+  // Widget? widget;
   runApp(CakeShopApp(
-    startWidget: widget!,
+    // startWidget: widget!,
     isDark: false,
   ));
   await CacheHelper.init();
@@ -22,10 +22,12 @@ void main() async {
 }
 
 class CakeShopApp extends StatelessWidget {
-  final Widget startWidget;
+  // final Widget startWidget;
   final bool isDark;
 
-  CakeShopApp({required this.isDark, required this.startWidget});
+  CakeShopApp({
+    required this.isDark,
+  });
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
@@ -48,7 +50,7 @@ class CakeShopApp extends StatelessWidget {
               themeMode: CakeShopCubit.get(context).isDark
                   ? ThemeMode.dark
                   : ThemeMode.light,
-              home: startWidget,
+              home: AddProductsScreen(),
             );
           }),
     );
